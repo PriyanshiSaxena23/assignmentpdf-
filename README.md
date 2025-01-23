@@ -1,70 +1,128 @@
-# Getting Started with Create React App
+PDF Data Extractor
+This project is a full-stack application that extracts specific details (Name, Phone Number, Address) from an uploaded PDF file. The backend processes the PDF to extract the data, and the frontend displays it in a user-friendly interface.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Features
+Upload a PDF file through the frontend.
+Automatically extract text from the PDF using the backend.
+Identify and display fields like:
+Name
+Phone Number
+Address
+Built with:
+React for the frontend.
+Node.js with Express for the backend.
+Multer for file uploads.
+pdf-parse for PDF text extraction.
+Technologies Used
+Frontend:
+React
+Axios (for API communication)
+Backend:
+Node.js
+Express.js
+Multer (for handling file uploads)
+pdf-parse (for extracting text from PDFs)
+Project Structure
+bash
+Copy
+Edit
+project/
+├── backend/
+│   ├── index.js                # Backend server file
+│   ├── package.json            # Backend dependencies
+│   └── node_modules/           # Installed backend modules
+├── frontend/
+│   ├── src/
+│   │   ├── App.js              # Main React component
+│   │   ├── App.css             # Frontend styling
+│   │   ├── index.js            # React entry point
+│   │   └── components/         # (Optional) Custom React components
+│   ├── package.json            # Frontend dependencies
+│   └── node_modules/           # Installed frontend modules
+Installation and Setup
+Backend Setup
+Navigate to the backend folder:
+bash
+Copy
+Edit
+cd backend
+Install dependencies:
+bash
+Copy
+Edit
+npm install
+Start the server:
+bash
+Copy
+Edit
+node index.js
+The backend server will run at http://localhost:5000.
+Frontend Setup
+Navigate to the frontend folder:
+bash
+Copy
+Edit
+cd frontend
+Install dependencies:
+bash
+Copy
+Edit
+npm install
+Start the development server:
+bash
+Copy
+Edit
+npm start
+The React app will open in your browser at http://localhost:3000.
+How to Use
+Open the frontend at http://localhost:3000.
+Upload a PDF file using the provided file upload button.
+The backend processes the file and extracts details like:
+Name
+Phone Number
+Address
+The extracted details are displayed on the screen.
+Endpoints
+Backend Endpoint
+POST /upload:
+Accepts a PDF file and returns extracted details as JSON.
+Request:
+File: file (multipart/form-data)
+Response:
+json
+Copy
+Edit
+{
+    "Name": "John Doe",
+    "Phone": "+1 (620) 130-7224",
+    "Address": "447 Sutter St 3rd Floor, San Francisco, CA 94108, United States"
+}
+Example Input and Output
+Input:
+A PDF containing:
+makefile
+Copy
+Edit
+Name: John Doe
+Phone: +1 (620) 130-7224
+Address: 447 Sutter St 3rd Floor, San Francisco, CA 94108, United States
+Output:
+json
+Copy
+Edit
+{
+    "Name": "John Doe",
+    "Phone": "+1 (620) 130-7224",
+    "Address": "447 Sutter St 3rd Floor, San Francisco, CA 94108, United States"
+}
+Troubleshooting
+Error: Module Not Found:
+Run npm install to install missing dependencies.
+Server Not Starting:
+Check if the backend is running on http://localhost:5000.
+Frontend Not Starting:
+Ensure npm start is run inside the frontend folder.
+Future Improvements
+Support for other document formats (e.g., DOCX, TXT).
+Improved field recognition using advanced NLP techniques (e.g., Hugging Face Transformers).
+Deployment to cloud platforms like AWS, Heroku, or Vercel.
